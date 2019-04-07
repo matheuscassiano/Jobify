@@ -2,6 +2,10 @@
     font-family: 'roboto', 'sans-serif';
 }
 
+img{
+    width: 100%;
+}
+
 h1,p{
     text-align: center;
 }
@@ -18,4 +22,24 @@ h2,h3 {
 ul {
     list-style: none;
     padding-left: 20px;
+}
+
+label{
+    display: block;
+    font-size: 25px;
+    margin: 20px 0 5px 0;
+}
+
+input, textarea, select{
+    display: block;
+    width: 80%;
+    padding: 8px;
+}
+
+textarea{
+    height: 320px;
+}
+
+button{
+    padding: 12px;
 }
