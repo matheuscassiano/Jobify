@@ -53,13 +53,32 @@ app.get('/admin/vagas/delete/:id', async(req, res) => {
 })
 
 app.get('/admin/vagas/nova', async(req, res) => {
-    res.render('admin/nova-vaga')
+    const db = await dbConnection
+    const categorias = await db.all('SELECT * FROM categorias')
+    res.render('admin/nova-vaga', { categorias })
+
 })
 
 app.post('/admin/vagas/nova', async(req, res) => {
     const { titulo, descricao, categoria} = req.body
     const db = await dbConnection
     await db.run(`INSERT INTO vagas(categoria, titulo, descricao) VALUES('${categoria}', '${titulo}', '${descricao}')`)
+    res.redirect('/admin/vagas')
+})
+
+app.get('/admin/vagas/editar/:id', async(req, res) => {
+    const db = await dbConnection
+    const categorias = await db.all('SELECT * FROM categorias')
+    const vaga = await db.get('SELECT * FROM vagas WHERE id = '+req.params.id)
+    res.render('admin/editar-vaga', { categorias, vaga })
+
+})
+
+app.post('/admin/vagas/editar/:id', async(req, res) => {
+    const { titulo, descricao, categoria} = req.body
+    const { id } = req.params
+    const db = await dbConnection
+    await db.run(`UPDATE vagas SET categoria = '${categoria}', titulo = '${titulo}', descricao = '${descricao}' WHERE id = '${id}'`)
     res.redirect('/admin/vagas')
 })
 

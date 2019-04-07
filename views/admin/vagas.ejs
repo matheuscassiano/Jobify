@@ -8,7 +8,8 @@
             <ul>
                 <% vagas.forEach( vaga => { %>                
                     <li><%- vaga.titulo %>
-                        <a href="/admin/vagas/delete/<%- vaga.id %>">Excluir</a>
+                        <a href="/admin/vagas/delete/<%- vaga.id %>">| Excluir </a>
+                        <a href="/admin/vagas/editar/<%- vaga.id %>">| Editar </a>
                     </li>
                 <% }) %>
             </ul>

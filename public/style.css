@@ -1,5 +1,7 @@
 * {
     font-family: 'roboto', 'sans-serif';
+    margin-left: 0;
+    margin-right: 0;
 }
 
 img{
@@ -16,12 +18,17 @@ h2 {
 }
 
 h2,h3 {
-    font-size: 24px;
+    font-size: 30px;
 }
 
-ul {
+h3{
+    margin-left: 10px;
+}
+
+ul, a{
     list-style: none;
     padding-left: 20px;
+    font-size: 25px;
 }
 
 label{
@@ -31,11 +38,16 @@ label{
 }
 
 input, textarea, select{
-    display: block;
-    width: 80%;
-    padding: 8px;
+    width: 90%;
+    padding: 15px;
 }
-
+input, textarea, select, button{
+    display: block;
+    font-size: 10px;
+    border: none;
+    border: 1px black solid;
+    border-radius: 5px;
+}
 textarea{
     height: 320px;
 }
